@@ -2,7 +2,32 @@
 
 {% block content %}
 
-<h1>hello world</h1>
+<br/>
+
+{% if zipcode %}
+	{{ zipcode }}
+{% endif %}
+{% if api %}
+	{% if api == "Error..."%}
+		There was an error. Please try again.
+	{% else %}
+		<div class="jumbotron">
+	  		<h1 class="display-4">{{ api.0.DataSets.1}}<br/></h1>
+	  		<p class="lead">{{ api.0.LocalizedName}} Air Quality: {{ api.0.DataSets.1}}</p>
+	  		<hr class="my-4">
+	 		 <p>Latitude: {{ api.0.GeoPosition.Latitude}}<br/>
+		Longitude: {{ api.0.GeoPosition.Longitude}}<br/>
+		Elevation: {{ api.0.GeoPosition.Elevation.Metric.Value}}{{ api.0.GeoPosition.Elevation.Metric.Unit}}<br/>
+		</p>
+	  		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		S</div>
+		
+		
+		
+	{% endif %}
+
+{% endif %}
+
 
 {% endblock %}
 
