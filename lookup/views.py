@@ -5,8 +5,10 @@ def home(request):
 	import requests
 
 	if request.method =="POST":
+		
+
 		zipcode= request.POST['zipcode']
-		api_request = requests.get("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&q= + zipcode + ")
+		api_request = requests.get("http://dataservice.accuweather.com/forecasts/v1/daily/1day/"+ zipcode +"?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&metric=true ")
 			#"http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&q=Bangalore"
 			#http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&q=Bangalore"
 		try:
@@ -19,7 +21,7 @@ def home(request):
 
 	else:
 
-		api_request = requests.get("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&q=Bangalore")
+		api_request = requests.get("http://dataservice.accuweather.com/forecasts/v1/daily/1day/204108?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&metric=true")
 		#"http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&q=Bangalore"
 		#http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0FOy9nMuRCDqM8VT1G52yRjJeOLnYsNV&q=Bangalore"
 		try:

@@ -11,16 +11,20 @@
 	{% if api == "Error..."%}
 		There was an error. Please try again.
 	{% else %}
-		<div class="jumbotron">
-	  		<h1 class="display-4">{{ api.0.DataSets.1}}<br/></h1>
-	  		<p class="lead">{{ api.0.LocalizedName}} Air Quality: {{ api.0.DataSets.1}}</p>
+		{{ api1 }}
+
+		
+
+		<div class="jumbotron good">
+	  		<h1 class="display-4">{{ api.DailyForecasts.0.Day.IconPhrase}}<br/></h1>
+	  		<p class="lead"> {{api.DailyForecasts.0.Day.PrecipitationIntensity}} {{ api.DailyForecasts.0.Day.PrecipitationType}}</p>
 	  		<hr class="my-4">
-	 		 <p>Latitude: {{ api.0.GeoPosition.Latitude}}<br/>
-		Longitude: {{ api.0.GeoPosition.Longitude}}<br/>
-		Elevation: {{ api.0.GeoPosition.Elevation.Metric.Value}}{{ api.0.GeoPosition.Elevation.Metric.Unit}}<br/>
+	 		 <p>Temperature:<br/>
+		Maximum: {{ api.DailyForecasts.0.Temperature.Maximum.Value}}{{api.DailyForecasts.0.Temperature.Maximum.Unit}}<br/>
+		Minimum: {{ api.DailyForecasts.0.Temperature.Minimum.Value}}{{api.DailyForecasts.0.Temperature.Minimum.Unit}}<br/>
 		</p>
 	  		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-		S</div>
+		</div>
 		
 		
 		
